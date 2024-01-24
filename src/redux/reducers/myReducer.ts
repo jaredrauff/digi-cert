@@ -1,4 +1,6 @@
-// src/redux/reducers/myReducer.ts
+// redux/reducers/myReducer.ts
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 interface MyReducerState {
     myData: string;
 }
@@ -7,9 +9,15 @@ const initialState: MyReducerState = {
     myData: 'Default Data',
 };
 
-const myReducer = (state = initialState, action: any) => {
-    // Your reducer logic here
-    return state;
-};
+const myReducerSlice = createSlice({
+    name: 'myReducer',
+    initialState,
+    reducers: {
+        updateMyData: (state, action: PayloadAction<string>) => {
+            state.myData = action.payload;
+        },
+    },
+});
 
-export default myReducer;
+export const { updateMyData } = myReducerSlice.actions;
+export default myReducerSlice.reducer;
