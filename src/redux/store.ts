@@ -7,7 +7,6 @@ export type RootState = ReturnType<typeof rootReducer>;
 
 const store = createStore(
     rootReducer,
-    // You can add middleware or other store enhancers here
 );
 
 export default store;
