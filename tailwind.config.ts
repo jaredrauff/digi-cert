@@ -4,12 +4,12 @@ module.exports = {
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
         "./public/index.html",
-        './node_modules/preline/preline.js',
     ],
     plugins: [
         require("tailwindcss"),
         require("autoprefixer"),
         require('preline/plugin'),
+        require('@heroicons/react'),
         require("postcss-import"),
         require("postcss-nested"),
         require("postcss-custom-properties"),
