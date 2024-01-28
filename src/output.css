@@ -497,6 +497,9 @@ video {
 .inset-40 {
   inset: 10rem;
 }
+.inset-0 {
+  inset: 0px;
+}
 .right-3 {
   right: 0.75rem;
 }
@@ -530,6 +533,9 @@ video {
 .w-full {
   width: 100%;
 }
+.max-w-\[900px\] {
+  max-width: 900px;
+}
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -555,14 +561,11 @@ video {
 .justify-between {
   justify-content: space-between;
 }
-.gap-6 {
-  gap: 1.5rem;
-}
-.gap-4 {
-  gap: 1rem;
-}
 .gap-2 {
   gap: 0.5rem;
+}
+.gap-6 {
+  gap: 1.5rem;
 }
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -625,6 +628,9 @@ video {
 .pe-9 {
   padding-inline-end: 2.25rem;
 }
+.text-center {
+  text-align: center;
+}
 .text-start {
   text-align: start;
 }
@@ -643,6 +649,12 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.leading-\[120\%\] {
+  line-height: 120%;
+}
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -659,6 +671,9 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 198 45 / var(--tw-text-opacity));
 }
+.opacity-50 {
+  opacity: 0.5;
+}
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -673,12 +688,21 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.duration-300 {
-  transition-duration: 300ms;
+.duration-500 {
+  transition-duration: 500ms;
+}
+.duration-700 {
+  transition-duration: 700ms;
 }
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+.font-star-wars {
+    font-family: 'Star Wars', sans-serif;
+}
+
 
 #loader {
     width: 80px;
@@ -1059,51 +1083,6 @@ video {
   z-index: 1;
 }
 
-.before\:block::before {
-  content: var(--tw-content);
-  display: block;
-}
-
-.before\:h-1::before {
-  content: var(--tw-content);
-  height: 0.25rem;
-}
-
-.before\:w-0::before {
-  content: var(--tw-content);
-  width: 0px;
-}
-
-.before\:border-0::before {
-  content: var(--tw-content);
-  border-width: 0px;
-}
-
-.before\:bg-yellow-starYellow::before {
-  content: var(--tw-content);
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 198 45 / var(--tw-bg-opacity));
-}
-
-.before\:transition::before {
-  content: var(--tw-content);
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.before\:duration-300::before {
-  content: var(--tw-content);
-  transition-duration: 300ms;
-}
-
-.before\:content-\[\'\'\]::before {
-  --tw-content: '';
-  content: var(--tw-content);
-}
-
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -1112,11 +1091,6 @@ video {
 .after\:block::after {
   content: var(--tw-content);
   display: block;
-}
-
-.after\:h-1::after {
-  content: var(--tw-content);
-  height: 0.25rem;
 }
 
 .after\:h-\[2px\]::after {
@@ -1140,13 +1114,10 @@ video {
   background-color: rgb(255 198 45 / var(--tw-bg-opacity));
 }
 
-.after\:transition::after {
+.after\:bg-lightSaberRed::after {
   content: var(--tw-content);
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 99 99 / var(--tw-bg-opacity));
 }
 
 .after\:transition-all::after {
@@ -1166,18 +1137,14 @@ video {
   content: var(--tw-content);
 }
 
-.hover\:border-b:hover {
-  border-bottom-width: 1px;
-}
-
-.hover\:border-yellow-starYellow:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 198 45 / var(--tw-border-opacity));
-}
-
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-900:hover {
@@ -1197,22 +1164,8 @@ video {
   transition-duration: 300ms;
 }
 
-.hover\:duration-500:hover {
-  transition-duration: 500ms;
-}
-
 .hover\:ease-in-out:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover\:before\:absolute:hover::before {
-  content: var(--tw-content);
-  position: absolute;
-}
-
-.hover\:before\:w-full:hover::before {
-  content: var(--tw-content);
-  width: 100%;
 }
 
 .hover\:after\:w-full:hover::after {
@@ -1246,39 +1199,6 @@ video {
 
 .disabled\:opacity-50:disabled {
   opacity: 0.5;
-}
-
-@media (min-width: 640px) {
-
-  .sm\:inset-40 {
-    inset: 10rem;
-  }
-
-  .sm\:p-6 {
-    padding: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  .lg\:inset-40 {
-    inset: 10rem;
-  }
-
-  .lg\:p-8 {
-    padding: 2rem;
-  }
-}
-
-@media (min-width: 1280px) {
-
-  .xl\:inset-40 {
-    inset: 10rem;
-  }
-
-  .xl\:p-8 {
-    padding: 2rem;
-  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1316,12 +1236,6 @@ video {
   .dark\:focus\:outline-none:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;
-  }
-
-  .dark\:focus\:ring-1:focus {
-    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
   }
 
   .dark\:focus\:ring-gray-600:focus {

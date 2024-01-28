@@ -1,7 +1,8 @@
+// Movies.tsx
 import React, {useEffect, useState} from 'react';
 import MovieTable from '../components/MovieTable';
-import {fetchAllMovies} from '/services/apiService';
-import {Film} from '/redux/types/movieTypes';
+import {fetchAllMovies} from '../services/apiService';
+import {Film} from '../redux/types/movieTypes';
 import Dropdown from '../components/Dropdown';
 
 const Movies: React.FC = () => {

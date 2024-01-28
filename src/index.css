@@ -1,6 +1,12 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+.font-star-wars {
+    font-family: 'Star Wars', sans-serif;
+}
+
 
 #loader {
     width: 80px;
