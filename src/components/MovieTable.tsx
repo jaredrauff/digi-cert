@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Film} from '../redux/types/movieTypes';
+import { Film } from '/redux/types/movieTypes';
 import Modal from 'react-modal';
 import MovieDetails from './MovieDetails';
-import {XIcon} from '@heroicons/react/solid';
+import LightsaberLoader from './LightSaberLoader';
+import { XIcon } from '@heroicons/react/solid';
 
 interface Props {
-    movies: Film[]; // Update the type to Film[]
+    movies: Film[];
 }
 
 interface SortConfig {
@@ -14,10 +14,11 @@ interface SortConfig {
     direction: string;
 }
 
-const MovieTable: React.FC<Props> = ({movies}) => {
-    const [sortConfig, setSortConfig] = React.useState<SortConfig>({key: 'episode_id', direction: 'ascending'});
+const MovieTable: React.FC<Props> = ({ movies }) => {
+    const [sortConfig, setSortConfig] = React.useState<SortConfig>({ key: 'episode_id', direction: 'ascending' });
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [selectedMovie, setSelectedMovie] = React.useState<Film | null>(null);
+    const [loading, setLoading] = React.useState(false); // Add loading state
     const sortedMovies = React.useMemo(() => {
         let sortableMovies = [...movies];
         if (sortConfig.key && sortConfig.direction) {
@@ -43,7 +44,12 @@ const MovieTable: React.FC<Props> = ({movies}) => {
     };
     const openModal = (movie: Film) => {
         setSelectedMovie(movie);
+        setLoading(true); // Set loading to true when opening modal
         setIsOpen(true);
+        // Simulate async operation (e.g., fetching additional data)
+        setTimeout(() => {
+            setLoading(false); // Set loading to false after 5 seconds
+        }, 5000);
     };
 
     const closeModal = () => {
@@ -74,14 +80,18 @@ const MovieTable: React.FC<Props> = ({movies}) => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel="Movie Details"
-                className="absolute inset-40 p-4 overflow-auto bg-white rounded-lg outline-none sm:inset-40 sm:p-6 lg:inset-40 lg:p-8 xl:inset-40 xl:p-8"
+                className="absolute inset-40 overflow-auto bg-white rounded-lg outline-none"
             >
-                <div className="flex-col">
+                {loading ? (
+                    <LightsaberLoader />
+                ) : (
+                <div className="flex-col p-4">
                     <div className="flex justify-end">
                         <XIcon className="w-6 text-gray-500 hover:text-gray-900 cursor-pointer" onClick={closeModal}/>
                     </div>
                     {selectedMovie && <MovieDetails movie={selectedMovie}/>}
                 </div>
+                )}
             </Modal>
         </div>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 
 const LightsaberLoader: React.FC = () => {
     return (
-        <div className="bg-black w-full h-dvh">
+        <div className="bg-black w-full h-dvh transition ease-in-out duration-300">
             <div id="loader">
                 <div className="ls-particles ls-part-1"></div>
                 <div className="ls-particles ls-part-2"></div>
