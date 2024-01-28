@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
+    "sourceMap": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["react", "react-dom", "node", "svg-sprite-loader"],
     "baseUrl": "./",
@@ -12,6 +13,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -20,5 +25,9 @@
     "jsx": "react-jsx"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts", "tailwind.config.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test"
+  ]
 }

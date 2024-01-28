@@ -1,14 +1,21 @@
-// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './views/Home';
+import MovieList from './components/MovieList';
+import MovieDetails from './components/MovieDetails';
+import Movies from "./views/Movies";
 
 const App: React.FC = () => {
-  return (
-      <main className="App">
-
-      </main>
-  );
-}
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/movies" element={<Movies />} />
+                <Route path="/movies/list" element={<MovieList />} />
+                <Route path="/movies/:id" element={<MovieDetails />} />
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
