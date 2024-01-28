@@ -4,7 +4,6 @@ import { loaderReducer } from './reducers/loadReducer';
 
 const rootReducer = combineReducers({
     loader: loaderReducer,
-    // other reducers...
 });
 
 const store = configureStore({

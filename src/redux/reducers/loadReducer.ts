@@ -1,4 +1,3 @@
-// reducer.ts
 import { SHOW_LOADER, HIDE_LOADER, AppActions } from '../actions/actions';
 
 const initialState = {

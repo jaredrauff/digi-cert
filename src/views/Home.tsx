@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useAppDispatch} from '../redux/hooks/reduxHooks';
-import {showLoader, hideLoader} from '../redux/actions/actions';
+import {useAppDispatch} from '/redux/hooks/reduxHooks';
+import {showLoader, hideLoader} from '/redux/actions/actions';
 
 const Home: React.FC = () => {
     const dispatch = useAppDispatch();

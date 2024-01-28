@@ -183,7 +183,6 @@ class Resource<S> {
     }
 }
 
-// Define collectionBuilder function
 function collectionBuilder<T>(resource: ResourceType) {
     return class SWCollection {
         static root = `https://swapi.dev/api/${resource}/`;
