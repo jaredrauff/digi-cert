@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { fetchMovieDetails } from '../services/apiService';
 import { useParams } from 'react-router-dom';
+import { Film } from '../redux/types/movieTypes';
 
-interface Movie {
-    title: string;
-    episode_id: number;
-    director: string;
-    release_date: string;
-    opening_crawl: string;
-    producer: string;
-    url: string;
+interface Props {
+    movie?: Film;
 }
 
-const MovieDetails: React.FC = () => {
+const MovieDetails: React.FC<Props> = ({ movie: movieProp }) => {
     const { id = '' } = useParams();
-    const [movie, setMovie] = useState<Movie | null>(null);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [movie, setMovie] = useState<Film | null>(movieProp || null);
+    const [loading, setLoading] = useState<boolean>(!movieProp);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
+        if (movieProp) {
+            return;
+        }
+
         const fetchData = async () => {
             try {
                 let movieData = await fetchMovieDetails(id);
@@ -26,7 +25,7 @@ const MovieDetails: React.FC = () => {
                     ...movieData,
                     episode_id: movieData.episode_id.toString(),
                 };
-                setMovie(movieData as unknown as Movie);
+                setMovie(movieData as unknown as Film);
                 setLoading(false);
             } catch (error) {
                 setError('Error fetching movie details');
@@ -35,7 +34,7 @@ const MovieDetails: React.FC = () => {
         };
 
         fetchData().then(() => {});
-    }, [id]);
+    }, [id, movieProp]);
 
     return (
         <div>
@@ -43,14 +42,13 @@ const MovieDetails: React.FC = () => {
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             {movie && (
-                <div>
+                <div className="flex-col flex">
                     <h3>{movie.title}</h3>
                     <p>Episode ID: {movie.episode_id}</p>
                     <p>Director: {movie.director}</p>
-                    <p>Release Date: {movie.release_date}</p>
+                    {/*<p>Release Date: {movie.release_date}</p>*/}
                     <p>Opening Crawl: {movie.opening_crawl}</p>
-                    <p>Producer: {movie.producer}</p>
-                    <p>URL: {movie.url}</p>
+                    <p className="text-yellow-starYellow">Producer: {movie.producer}</p>
                 </div>
             )}
         </div>

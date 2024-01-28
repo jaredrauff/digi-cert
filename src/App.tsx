@@ -4,16 +4,24 @@ import Home from './views/Home';
 import MovieList from './components/MovieList';
 import MovieDetails from './components/MovieDetails';
 import Movies from "./views/Movies";
+import { useSelector } from 'react-redux';
+import LightsaberLoader from './components/LightSaberLoader';
+import { RootState } from './redux/types/types'; // Corrected import path
 
 const App: React.FC = () => {
+    const loading = useSelector((state: RootState) => state.loader.loading);
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/movies" element={<Movies />} />
-                <Route path="/movies/list" element={<MovieList />} />
-                <Route path="/movies/:id" element={<MovieDetails />} />
-            </Routes>
+            {/* Use React.Fragment to wrap conditional rendering */}
+            <React.Fragment>
+                {loading && <LightsaberLoader />}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/movies" element={<Movies />} />
+                    <Route path="/movies/list" element={<MovieList />} />
+                    <Route path="/movies/:id" element={<MovieDetails />} />
+                </Routes>
+            </React.Fragment>
         </Router>
     );
 };

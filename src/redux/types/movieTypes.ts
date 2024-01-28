@@ -1,6 +1,5 @@
 import _ from 'lodash';
 
-// Define interfaces for movie-related entities
 export interface Film {
     characters: string[] | Character[];
     created: Date;

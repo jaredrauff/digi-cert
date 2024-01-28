@@ -20,7 +20,7 @@ const Dropdown: React.FC<DropdownProps> = ({ options, value, onChange }) => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative w-full">
             <button className="disabled:pointer-events-none disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" onClick={() => setIsOpen(!isOpen)}>
                 {value || 'Select a movie'}
                 <ChevronDownIcon className="absolute top-1/2 right-3 -translate-y-1/2 w-5 h-5 text-gray-400"/>

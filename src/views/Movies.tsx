@@ -34,8 +34,8 @@ const Movies: React.FC = () => {
     );
 
     return (
-        <div className="bg-black flex-col h-dvh items-center justify-center flex p-4">
-            <h1 className="text-yellow-starYellow">Movies</h1>
+        <div className="bg-black flex-col h-dvh items-center flex gap-6 p-4">
+            <h1 className="text-yellow-starYellow text-6xl">Movies</h1>
             <div className="flex flex-row w-full justify-between gap-6">
                 <input type="text"
                        className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
