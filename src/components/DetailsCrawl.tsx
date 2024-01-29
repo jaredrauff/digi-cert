@@ -89,9 +89,9 @@ const DetailsCrawl: React.FC<Props> = ({ movie: movieProp }) => {
                 {error && <p>{error}</p>}
                 {movie && (
                     <div className="content" ref={contentRef}>
-                        <h1 className="title">{movie.episode_id}</h1>
-                        <h2 className="subtitle">{movie.title}</h2>
-                        <p>{movie.opening_crawl}</p>
+                        <h1 className="title text-yellow-starYellow">{movie.episode_id}</h1>
+                        <h2 className="subtitle text-yellow-starYellow">{movie.title}</h2>
+                        <p className="text-yellow-starYellow">{movie.opening_crawl}</p>
                     </div>
                 )}
             </section>

@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import LightsaberLoader from './components/LightSaberLoader';
 import { RootState } from './redux/types/types';
 import Modal from 'react-modal';
-import MoviesCrawl from "./views/MoviesCrawl";
 
 Modal.setAppElement('#root');
 
@@ -22,7 +21,6 @@ const App: React.FC = () => {
                     <Route path="/" element={<Home />} />
                     <Route path="/movies" element={<Movies />} />
                     <Route path="/movies/list" element={<MovieList />} />
-                    <Route path="/movies/crawl" element={<MoviesCrawl />} />
                     <Route path="/movies/:id" element={<MovieDetails />} />
                 </Routes>
             </React.Fragment>
