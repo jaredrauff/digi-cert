@@ -21,12 +21,16 @@ export const fetchMovieDetails = async (movieId: string): Promise<Film> => {
         throw new Error(`Invalid movie ID: ${movieId}`);
     }
 
-    const response = await fetch(`${BASE_URL}films/${movieId}/`);
-    if (!response.ok) {
-        throw new Error(`Failed to fetch details for movie ${movieId}: ${response.statusText}`);
+    try {
+        const response = await fetch(`${BASE_URL}films/${movieId}/`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch details for movie ${movieId}: ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(`Error fetching details for movie ${movieId}:`, error);
+        throw error;
     }
-
-    return await response.json();
 };
 
 function isValidMovieId(movieId: string): boolean {
