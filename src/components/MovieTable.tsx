@@ -69,9 +69,9 @@ const MovieTable: React.FC<Props> = ({ movies }) => {
                 </div>
                 <div className="flex flex-col border-gray-200 rounded-lg overflow-hidden dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                     {sortedMovies.map((movie) => (
-                        <div className="flex w-full justify-between p-4 hover:bg-gray-300 duration-500 transition ease cursor-pointer" key={movie.episode_id} onClick={() => openModal(movie)}>
-                            <p className="text-yellow-starYellow">{movie.title}</p>
-                            <p className="text-yellow-starYellow">{movie.episode_id}</p>
+                        <div className="flex w-full justify-between p-4 hover:bg-gray-300 duration-500 hover:text-black text-yellow-starYellow transition ease cursor-pointer" key={movie.episode_id} onClick={() => openModal(movie)}>
+                            <p>{movie.title}</p>
+                            <p>{movie.episode_id}</p>
                         </div>
                     ))}
                 </div>
