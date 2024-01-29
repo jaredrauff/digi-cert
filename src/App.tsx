@@ -6,19 +6,23 @@ import MovieDetails from './components/MovieDetails';
 import Movies from "./views/Movies";
 import { useSelector } from 'react-redux';
 import LightsaberLoader from './components/LightSaberLoader';
-import { RootState } from './redux/types/types'; // Corrected import path
+import { RootState } from './redux/types/types';
+import Modal from 'react-modal';
+import MoviesCrawl from "./views/MoviesCrawl";
+
+Modal.setAppElement('#root');
 
 const App: React.FC = () => {
     const loading = useSelector((state: RootState) => state.loader.loading);
     return (
         <Router>
-            {/* Use React.Fragment to wrap conditional rendering */}
             <React.Fragment>
                 {loading && <LightsaberLoader />}
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/movies" element={<Movies />} />
                     <Route path="/movies/list" element={<MovieList />} />
+                    <Route path="/movies/crawl" element={<MoviesCrawl />} />
                     <Route path="/movies/:id" element={<MovieDetails />} />
                 </Routes>
             </React.Fragment>

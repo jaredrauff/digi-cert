@@ -38,16 +38,15 @@ const MovieDetails: React.FC<Props> = ({ movie: movieProp }) => {
 
     return (
         <div>
-            <h2>Movie Details</h2>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             {movie && (
                 <div className="flex-col flex">
-                    <h3>{movie.title}</h3>
-                    <p>Episode ID: {movie.episode_id}</p>
-                    <p>Director: {movie.director}</p>
-                    {/*<p>Release Date: {movie.release_date}</p>*/}
-                    <p>Opening Crawl: {movie.opening_crawl}</p>
+                    <h3 className="text-yellow-starYellow">{movie.title}</h3>
+                    <p className="text-yellow-starYellow">Episode ID: {movie.episode_id}</p>
+                    <p className="text-yellow-starYellow">Director: {movie.director}</p>
+                    <p className="text-yellow-starYellow">Release Date: {String(movie.release_date)}</p>
+                    <p className="text-yellow-starYellow">Opening Crawl: {movie.opening_crawl}</p>
                     <p className="text-yellow-starYellow">Producer: {movie.producer}</p>
                 </div>
             )}

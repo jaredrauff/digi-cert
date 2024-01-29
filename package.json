@@ -16,6 +16,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/react-redux": "^7.1.33",
     "autoprefixer": "^10.4.17",
+    "gsap": "^3.12.5",
     "lodash": "^4.17.21",
     "postcss": "^8.4.33",
     "preline": "^2.0.3",

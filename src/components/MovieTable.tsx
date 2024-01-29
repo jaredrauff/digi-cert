@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import MovieDetails from './MovieDetails';
 import LightsaberLoader from './LightSaberLoader';
 import { XIcon } from '@heroicons/react/solid';
+import DetailsCrawl from "./DetailsCrawl";
 
 interface Props {
     movies: Film[];
@@ -79,16 +80,16 @@ const MovieTable: React.FC<Props> = ({ movies }) => {
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel="Movie Details"
-                className="absolute inset-0 overflow-auto bg-white rounded-lg outline-none flex flex-col justify-center items-center"
+                className="absolute inset-0 overflow-auto bg-black rounded-lg outline-none flex flex-col justify-center items-center"
             >
                 {loading ? (
                     <LightsaberLoader />
                 ) : (
-                    <div className="flex flex-col p-4">
+                    <div className="flex flex-col p-4 h-dvh w-full">
                         <div className="flex justify-end">
                             <XIcon className="w-6 text-gray-500 hover:text-gray-900 cursor-pointer" onClick={closeModal}/>
                         </div>
-                        {selectedMovie && <MovieDetails movie={selectedMovie}/>}
+                        {selectedMovie && <DetailsCrawl movie={selectedMovie}/>}
                     </div>
                 )}
             </Modal>
